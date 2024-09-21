@@ -1,11 +1,11 @@
 {
-  "name": "@monorepo-template/functions",
-  "version": "0.0.0",
-  "dependencies": {
-    "@monorepo-template/core": "*",
-    "sst": "*"
-  },
-  "devDependencies": {
-    "@types/aws-lambda": "^8.10.137"
-  }
+	"name": "@nsforum-sst/functions",
+	"version": "0.0.0",
+	"dependencies": {
+		"@nsforum-sst/core": "*",
+		"sst": "*"
+	},
+	"devDependencies": {
+		"@types/aws-lambda": "^8.10.137"
+	}
 }

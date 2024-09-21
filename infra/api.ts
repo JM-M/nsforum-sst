@@ -1,7 +1,20 @@
-import { bucket } from "./storage";
+import {
+	ORBIS_ENVIRONMENT_ID,
+	ORBIS_NODE_URL,
+	CERAMIC_NODE_URL,
+	FRONTEND_URL,
+	BREVO_API_KEY,
+} from "./storage";
 
-export const myApi = new sst.aws.Function("MyApi", {
-  url: true,
-  link: [bucket],
-  handler: "packages/functions/src/api.handler"
+export const api = new sst.aws.ApiGatewayV2("Api");
+
+api.route("POST /posts/{stream_id}/notify-subscribers", {
+	handler: "packages/functions/src/notify-subscribers.handler",
+	link: [
+		ORBIS_ENVIRONMENT_ID,
+		ORBIS_NODE_URL,
+		CERAMIC_NODE_URL,
+		FRONTEND_URL,
+		BREVO_API_KEY,
+	],
 });

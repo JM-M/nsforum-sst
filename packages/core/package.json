@@ -1,19 +1,22 @@
 {
-  "name": "@monorepo-template/core",
-  "version": "0.0.0",
-  "scripts": {
-    "test": "sst shell vitest"
-  },
-  "exports": {
-    "./*": [
-      "./src/*/index.ts",
-      "./src/*.ts"
-    ]
-  },
-  "dependencies": {
-    "sst": "*"
-  },
-  "devDependencies": {
-    "vitest": "^2.0.3"
-  }
+	"name": "@nsforum-sst/core",
+	"version": "0.0.0",
+	"scripts": {
+		"test": "sst shell vitest"
+	},
+	"exports": {
+		"./*": [
+			"./src/*/index.ts",
+			"./src/*.ts"
+		]
+	},
+	"dependencies": {
+		"@useorbis/db-sdk": "^0.0.54-alpha",
+		"lodash-es": "^4.17.21",
+		"sst": "*"
+	},
+	"devDependencies": {
+		"@types/lodash-es": "^4.17.12",
+		"vitest": "^2.0.3"
+	}
 }
