@@ -11,10 +11,18 @@ export const handler: Handler = Util.handler(async (event) => {
 
   try {
     const streamId = event?.pathParameters?.stream_id;
-    if (!streamId) throw new Error("No stream id");
+    if (!streamId) {
+      const error = new Error("No stream id");
+      console.error(error);
+      throw error;
+    }
 
     const emailContent = data.emailContent;
-    if (!emailContent) throw new Error("No email ontent");
+    if (!emailContent) {
+      const error = new Error("No email ontent");
+      console.error(error);
+      throw error;
+    }
 
     Notification.sendPostNotifications({ streamId, htmlContent: emailContent });
 

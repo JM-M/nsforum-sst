@@ -16,7 +16,11 @@ export module Notification {
       where: { stream_id: streamId },
     });
 
-    if (!post) throw new Error("No post found");
+    if (!post) {
+      const error = new Error("No post found");
+      console.error(error);
+      throw error;
+    }
 
     const subscribersQuery = `
       {
