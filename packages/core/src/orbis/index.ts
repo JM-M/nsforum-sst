@@ -32,7 +32,11 @@ export module Orbis {
     if (!isNil(orderBy)) statement = statement.orderBy(...orderBy);
 
     const [result, error] = await catchError(() => statement?.run());
-    if (error) throw new Error(`Error while fetching posts: ${error}`);
+    if (error) {
+      const err = new Error(`Error while fetching posts: ${error}`);
+      console.error(err);
+      throw err;
+    }
     const rows = result.rows;
     return JSON.parse(JSON.stringify(rows)) as OrbisDBRow<T>[];
   }
